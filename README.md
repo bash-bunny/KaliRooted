@@ -1,4 +1,4 @@
-# Kali Rootedcon
+# Kali RootedCon
 
 Script y cheatsheets para el curso.
 
