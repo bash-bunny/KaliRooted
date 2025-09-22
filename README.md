@@ -13,7 +13,7 @@ Instalación en una [Kali Linux](https://www.kali.org/) las herramientas del cur
 
 ```bash
 # Descargar el script
-git clone https://github.com/bash-bunny/KaliRooted.git && cd KaliRooted/
+wget https://raw.githubusercontent.com/bash-bunny/KaliRooted/refs/heads/main/setup.sh
 # Dar permisos al script y ejecutarlo
 chmod +x ./setup.sh && ./setup.sh
 ```
