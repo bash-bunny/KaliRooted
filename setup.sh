@@ -19,7 +19,7 @@ cd ~
 mkdir "${TOOLS_DIR}"
 
 # Check for pipx and install sherlock-project, nexfil
-if apt list --installed | grep -i pipx; then
+if apt list --installed | grep -i pipx &>/dev/null; then
 	pipx install sherlock-project nexfil
 else
 	echo "${password}" | sudo -S apt install -y pipx
