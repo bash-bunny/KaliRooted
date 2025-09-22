@@ -1,6 +1,6 @@
-# SummerCamp2025
+# Kali Rootedcon
 
-Material del SummerCamp de Incibe 2025
+Script y cheatsheets para el curso.
 
 ## Cheatsheets
 
