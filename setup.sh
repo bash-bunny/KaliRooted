@@ -17,7 +17,6 @@ echo "${password}" | sudo -S apt install -y golang git gowitness eyewitness meta
 # Create the directory for the tools
 cd ~
 mkdir "${TOOLS_DIR}"
-cd ~
 
 # Check for pipx and install sherlock-project, nexfil
 if apt list --installed | grep -i pipx; then
@@ -71,13 +70,13 @@ go install github.com/tomnomnom/httprobe@latest
 go install github.com/tomnomnom/waybackurls@latest
 
 # Personal scripts
-cd ~/.local/bin
+cd "~/${TOOLS_DIR}"
 wget https://raw.githubusercontent.com/bash-bunny/dot/refs/heads/main/.local/bin/cheat
 wget https://raw.githubusercontent.com/bash-bunny/Kali/refs/heads/main/crt_subs
 cd
 
 # Download the cheatsheets
-cd ~/Desktop
+cd
 wget https://raw.githubusercontent.com/bash-bunny/SummerCamp2025/refs/heads/main/Cheatsheets/LinuxCheatsheet.md
 wget https://raw.githubusercontent.com/bash-bunny/SummerCamp2025/refs/heads/main/Cheatsheets/GoogleDorkCheatsheet.md
 # Convert it to PDF
