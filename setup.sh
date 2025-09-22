@@ -12,10 +12,10 @@ echo ""
 echo "${password}" | sudo -S apt update && sudo apt upgrade -y
 
 # Install the programs from the Kali repository
-echo "${password}" | sudo -S apt install -y golang git gowitness eyewitness metagoofil theharvester pandoc texlive
+echo "${password}" | sudo -S apt install -y jq golang git gowitness eyewitness metagoofil theharvester pandoc texlive
 
 # Create the directory for the tools
-cd ~
+cd
 mkdir "${TOOLS_DIR}"
 
 # Check for pipx and install sherlock-project, nexfil
@@ -27,7 +27,7 @@ else
 fi
 
 # Install whatsmyname
-cd "~/${TOOLS_DIR}"
+cd "${HOME}/${TOOLS_DIR}"
 # Clone the repository
 git clone https://github.com/bash-bunny/WhatsMyName.git && cd WhatsMyName
 python -m venv venv
@@ -39,7 +39,7 @@ deactivate
 cd
 
 # Install maigret
-cd "~/${TOOLS_DIR}"
+cd "${HOME}/${TOOLS_DIR}"
 # Clone the repository and make the installation
 git clone https://github.com/soxoj/maigret && cd maigret
 python -m venv venv
@@ -51,7 +51,7 @@ deactivate
 cd
 
 # Install pymeta
-cd "~/${TOOLS_DIR}"
+cd "${HOME}/${TOOLS_DIR}"
 # Clone the repository and make the installation
 git clone https://github.com/m8sec/pymeta
 cd pymeta
@@ -70,10 +70,19 @@ go install github.com/tomnomnom/httprobe@latest
 go install github.com/tomnomnom/waybackurls@latest
 
 # Personal scripts
-cd "~/${TOOLS_DIR}"
+# Create directory
+mkdir -p "${HOME}/.local/bin"
+cd "${HOME}/.local/bin"
 wget https://raw.githubusercontent.com/bash-bunny/dot/refs/heads/main/.local/bin/cheat
+chmod +x cheat
 wget https://raw.githubusercontent.com/bash-bunny/Kali/refs/heads/main/crt_subs
+chmod +x crt_subs
+wget https://raw.githubusercontent.com/bash-bunny/Kali/refs/heads/main/urlencode
+chmod +x urlencode
 cd
+## Update the bashrc and zshrc
+printf 'export PATH=$HOME/.local/bin:$PATH' >> "${HOME}/.zshrc"
+printf 'export PATH=$HOME/.local/bin:$PATH' >> "${HOME}/.bashrc"
 
 # Download the cheatsheets
 cd
